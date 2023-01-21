@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Mensagem Oculta</title>
+</head>
+<body>
+    <div class="backg"></div>
+    
+    <div class="content">
+        <!-- Título da página -->
+        <header>
+            <h1>Mensagem Oculta</h1>
+            <h2>Crie uma mensagem oculta ou descodifique utilizando <span>Cifra de Cézar</span> ou <span>base 64</span>.</h2>
+        </header>
+
+        <!-- Formulário para captar o texto -->
+        <form id="coDecode" name="coDecode">
+        <!-- Campo de entrada de texto -->
+            <label for="entry">
+                Digite o texto a ser codificado ou decodificado:
+            </label>
+            <input type="text" name="entry" id="entry">
+            <p class="errorMsg"></p>
+
+            <!-- Seleção de algoritimo a ser utilizado -->
+            <label for="algorithm">Selecione o código a ser utilizado:</label>
+                
+                <select name="algorithm" id="algorithm" onchange="cipher()">
+                    <option value="" disabled selected></option>
+                    <option value="cezarCipher">Cifra de Cézar</option>
+                    <option value="baseS">base64</option>
+                </select>
+                <p class="errorMsg"></p>
+
+                <!-- Campo para o incremento da Cifra de Cézar -->
+                <label for="increment" class="increment">Digite o incremento:</label>
+                <input type="number" name="increment" class="increment" id="increment" min="1" max="26">
+                <p class="errorMsg"></p>
+
+            <!-- Seleção entre Codificar ou Decodificar -->
+            <label for="code_decodeOpt">Escolha se quer codificar ou decodificar:</label>
+                <div class="containerCDOpt">
+                    <div class="containerCDOpt">
+                        <div class="radioSel" id="codeBtn"></div>
+                        <input type="radio" name="code_decodeOpt" id="code" value="Codificar" onchange="checkRadio(codeOptBtn, codeBtn, decodeBtn)">
+                        <label for="code">Codificar</label>
+                    </div>
+
+                    <div class="containerCDOpt">
+                        <div class="radioSel" id="decodeBtn"></div>
+                        <input type="radio" name="code_decodeOpt" id="decode" value="Decodificar" onchange="checkRadio(decodeOptBtn, decodeBtn, codeBtn)">
+                        <label for="decode">Decodificar</label>
+                    </div>
+            </div>
+
+        </form>
+
+        <button type="submit" id="act" onclick="validateEntries()">.</button>
+
+        <textarea name="output" id="output" readonly> </textarea>
+
+    </div>
+
+<script src="assets/js/script.js"></script>
+</body>
+</html>
