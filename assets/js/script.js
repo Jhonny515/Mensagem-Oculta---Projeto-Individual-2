@@ -4,7 +4,7 @@ String.prototype.replaceAt = function (index, replacement) {
         return this.valueOf()
     }
 
-    var chars = this.split('')
+    let chars = this.split('')
     chars[index] = replacement
     return chars.join('')
 
